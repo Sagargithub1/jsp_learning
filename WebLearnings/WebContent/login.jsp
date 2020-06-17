@@ -11,6 +11,8 @@
 UserName :	  <input type="text" name="uname"><br/>
 Password :<input type="password" name="pass">
 <input type="submit" value="Login">
+<br/><br/>
+if not registered? <a href="register.jsp">Click Here</a>
 </form>
 </body>
 </html>

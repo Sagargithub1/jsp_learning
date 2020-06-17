@@ -3,6 +3,7 @@ package web.practice.login.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import com.mysql.jdbc.PreparedStatement;
 
@@ -11,6 +12,7 @@ public class LoginDao {
 	String username="root";
 	String password="";//rootgivenpassword
 	String sql="select * from login where uname=? and pass=?";
+	
 	
 	public boolean checkLogin(String userName, String userPassword) {
 		
@@ -31,4 +33,6 @@ public class LoginDao {
 		
 		return false;
 	}
+	
+
 }
