@@ -60,4 +60,29 @@ public class UserDao {
 		 */
 		
 	}
+
+	public boolean checkLogin(String userName, String userPassword) {
+		
+		String url="jdbc:mysql://localhost:3306/learningDB?autoReconnect=true&useSSL=false";
+		String username="root";
+		String password="";//rootgivenpassword
+		String fetch_user_login_sql="select * from user001 where username=? and userpassword=?";
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con=DriverManager.getConnection(url,username,password);
+			PreparedStatement st=(PreparedStatement) con.prepareStatement(fetch_user_login_sql);
+			st.setString(1, userName);
+			st.setString(2, userPassword);
+			ResultSet rs=st.executeQuery();
+			if(rs.next()) {
+				return true;
+			}
+		}
+		catch(Exception e) {
+			System.out.println("Error Caught "+e);
+		}
+		
+		return false;
+	}
 }

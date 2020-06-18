@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import web.practice.login.dao.LoginDao;
+import web.practice.login.dao.UserDao;
 
 /**
  * Servlet implementation class Login
@@ -24,7 +24,7 @@ public class Login extends HttpServlet {
 		
 		  String uname=request.getParameter("uname"); 
 		  String pass=request.getParameter("pass");
-		  LoginDao dao=new LoginDao();
+		  UserDao dao=new UserDao();
 		  if(dao.checkLogin(uname, pass)) {
 			  HttpSession session=request.getSession();
 			  session.setAttribute("username", uname);
